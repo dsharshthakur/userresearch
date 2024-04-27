@@ -2,7 +2,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferWindowMemory
 from langchain_google_genai import GoogleGenerativeAI
-from dotenv import load_dotenv
+
 
 # load the keyl
 key = st.secrets["PROJECT_KEY"] 
