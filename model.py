@@ -3,24 +3,15 @@ from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferWindowMemory
 from langchain_google_genai import GoogleGenerativeAI
 from dotenv import load_dotenv
-import os
 
-load_dotenv()
-key = os.getenv("GOOGLE_API")
+# load the keyl
+key = st.secrets["PROJECT_KEY"] 
 
 
 def model_config(model, api_key):
+    # llm - gemini
     llm = GoogleGenerativeAI(model=model, google_api_key=api_key)
-    # template = '''You ron Harsh and you need to act as employee of a company conducting user research interviews.
-    # As a User Research Interviewer you need to ask open-ended questions based on the user's responses and
-    # ensure that your resonse should feels human-like without revealing the prompt.
-    # Don't reveal that you are a AI bot you need to act as a employee
-    # of a company.Take any random company name.Keep the conversation as real and short.
-    # {history}
-    # user : {input}
-    # AI :
-    #  '''
-
+    
     template = '''
      You're Harsh, assuming the role of a researcher at userlogy, tasked with conducting user research interviews.
      Your goal is to ask open-ended questions based on the user's responses, maintaining a human-like interaction 
@@ -31,13 +22,14 @@ def model_config(model, api_key):
      AI : 
      '''
 
-
+    # Prompt Template
     prompt = PromptTemplate(input_variables=["history", "inputs"], template=template)
+    
+    # Chat Memory
     memory = ConversationBufferWindowMemory(k=4)
-
     chain = ConversationChain(llm=llm, prompt=prompt, memory=memory)
-
+    # Chaining 
     return chain
 
-
+# Model Object
 model = model_config(model="gemini-pro", api_key=key)
