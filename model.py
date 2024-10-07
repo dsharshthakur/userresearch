@@ -11,7 +11,8 @@ key = st.secrets["PROJECT_KEY"]
 
 def model_config(model, api_key):
     # llm - gemini
-    llm = GoogleGenerativeAI(model=model, google_api_key=api_key)
+    # llm = GoogleGenerativeAI(model=model, google_api_key=api_key)
+     llm = ChatGroq(model = model , groq_api_key = api_key)
     
     template = '''
      You're Harsh, assuming the role of a researcher at at Insightify Research Co.., tasked with conducting user research interviews.
@@ -33,4 +34,4 @@ def model_config(model, api_key):
     return chain
 
 # Model Object
-model = model_config(model="gemini-pro", api_key=key)
+model = model_config(model="Llama3-8b-8192", api_key=groq_key)
