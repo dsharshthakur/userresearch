@@ -3,6 +3,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferWindowMemory
 from langchain_google_genai import GoogleGenerativeAI
+from langchain_groq import ChatGroq 
 
 
 # load the keyl
