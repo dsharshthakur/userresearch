@@ -2,3 +2,4 @@ streamlit
 streamlit_chat
 langchain
 langchain_google_genai
+langchain_groq
