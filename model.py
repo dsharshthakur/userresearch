@@ -6,7 +6,7 @@ from langchain_google_genai import GoogleGenerativeAI
 
 
 # load the keyl
-key = st.secrets["PROJECT_KEY"] 
+groq_key = st.secrets["PROJECT_KEY"] 
 
 
 def model_config(model, api_key):
