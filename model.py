@@ -12,8 +12,7 @@ key = st.secrets["PROJECT_KEY"]
 def model_config(model, api_key):
     # llm - gemini
     # llm = GoogleGenerativeAI(model=model, google_api_key=api_key)
-     llm = ChatGroq(model = model , groq_api_key = api_key)
-    
+    llm = ChatGroq(model = model , groq_api_key = api_key)
     template = '''
      You're Harsh, assuming the role of a researcher at at Insightify Research Co.., tasked with conducting user research interviews.
      Your goal is to ask open-ended questions based on the user's responses, maintaining a human-like interaction 
